@@ -1,0 +1,17 @@
+Read bin/install.py
+
+
+for dotfiles
+# overwrite .emacs, .zshrc, ...
+$ bin/install.py
+
+
+for emacs
+
+I use el-get.
+$ sudo yum install texinfo
+or
+$ sudo apt-get install texinfo
+
+see .emacs.d/el-get.el
+

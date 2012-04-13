@@ -1,0 +1,7 @@
+Compression yes
+StrictHostKeyChecking no
+ServerAliveInterval 60
+
+Host github.com
+  IdentityFile ~/.ssh/id_rsa_t-learn
+  IdentityFile ~/.ssh/id_rsa

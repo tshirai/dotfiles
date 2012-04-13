@@ -1,0 +1,33 @@
+############################
+# aliases
+alias ls='ls -F --color=tty'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lld='ls -ld'
+alias sl=ls
+
+alias du="du -h"
+alias df="df -h"
+
+alias du="du -h"
+alias df="df -h"
+
+alias su="su -l"
+
+alias grep='grep -E --color=tty'
+alias top='top -d 1'
+#alias xqbiff='xqbiff -mode=pop -pt 0 -na -sort=new'
+
+alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
+
+unalias lv 2&> /dev/null > /dev/null
+which lv 2&> /dev/null > /dev/null
+if test $? -ne 0 
+then
+  alias lv=less
+fi
+
+############################33
+# environment variables
+export SVN_EDITOR=/usr/bin/emacs
