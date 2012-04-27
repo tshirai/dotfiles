@@ -10,9 +10,6 @@ alias sl=ls
 alias du="du -h"
 alias df="df -h"
 
-alias du="du -h"
-alias df="df -h"
-
 alias su="su -l"
 
 alias grep='grep -E --color=tty'
@@ -27,6 +24,9 @@ if test $? -ne 0
 then
   alias lv=less
 fi
+
+alias be="bundle exec"
+alias ber="be ruby"
 
 ############################33
 # environment variables
