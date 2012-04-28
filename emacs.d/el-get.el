@@ -48,6 +48,12 @@
                :url "http://www.bookshelf.jp/elc/mcomplete-history.el"
                :description ""
                :load "mcomplete-history.el")
+        (:name cucumber-mode
+               :type git
+               :url "git://github.com/michaelklishin/cucumber.el.git"
+               :description ""
+               :load "feature-mode.el"
+               :feacures "feature-mode")
         ))
 
 (el-get 'sync)
@@ -56,9 +62,11 @@
 (el-get-install 'apache-mode)
 (el-get-install 'auto-complete)
 (el-get-install 'auto-indent-mode)
+(el-get-install 'browse-kill-ring)
 (el-get-install 'color-theme)
 (el-get-install 'css-mode)
 (el-get-install 'csv-mode)
+(el-get-install 'cucumber-mode)
 (el-get-install 'git-commit-mode)
 (el-get-install 'haml-mode)
 (el-get-install 'hlinum)

@@ -34,9 +34,10 @@
 (setq frame-title-format
       (concat  "%b - emacs@" system-name))
 
-;; kill-summary
-(autoload 'kill-summary "kill-summary" nil t)
-(global-set-key "\M-y" 'kill-summary)
+;; ;; kill-summary
+;; (autoload 'kill-summary "kill-summary" nil t)
+;; (global-set-key "\M-y" 'kill-summary)
+(global-set-key "\M-y" 'browse-kill-ring)
 
 
 ;; mcomplete
