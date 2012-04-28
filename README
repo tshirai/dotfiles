@@ -1,15 +1,1 @@
-[dotfiles]
-overwrite .emacs, .zshrc, ...
-  see bin/install.py
-  $ bin/install.py
-
-
-[emacs]
-install texinfo for magit.
-  for rhel
-  $ sudo yum install texinfo
-  for debian
-  $ sudo apt-get install texinfo
-
-see .emacs.d/el-get.el
-
+see http://tshirai.github.com/dotfiles
