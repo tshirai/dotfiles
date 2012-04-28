@@ -39,7 +39,6 @@ kterm)
 cons25)
   unset LANG
   export LSCOLORS=ExFxCxdxBxegedabagacad
-#  export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
   export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
   zstyle ':completion:*' list-colors \
       'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
@@ -52,7 +51,6 @@ kterm*|xterm*)
     echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
   }
   export LSCOLORS=exfxcxdxbxegedabagacad
-  #export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
   export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
   zstyle ':completion:*' list-colors \
     'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
@@ -77,7 +75,6 @@ setopt noautoremoveslash
 bindkey -e
 bindkey -e "^[h" backward-kill-word
 
-
 #string binded to ^P/^N
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -86,6 +83,7 @@ bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
 bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
+
 
 # history
 HISTFILE=~/.zsh_history
@@ -110,10 +108,6 @@ zstyle ':completion:*:hosts' hosts $hosts
 #zstyle ':completion:*:complete:scp:*:files' command command -
 
 
-if [ -f ${DOTFILES}/alias ]
-then
-    source ${DOTFILES}/alias
-fi
 
 alias where="command -v"
 alias j="jobs -l"
@@ -133,4 +127,6 @@ setopt RC_EXPAND_PARAM
 ## disable mail checking
 #MAILCHECK=0
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -f ${DOTFILES}/alias ]] && source ${DOTFILES}/alias
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -f ~/.proxyrc ]] && source ~/.proxyrc
