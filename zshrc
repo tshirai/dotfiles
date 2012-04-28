@@ -75,6 +75,8 @@ setopt noautoremoveslash
 
 # keybind emacs
 bindkey -e
+bindkey -e "^[h" backward-kill-word
+
 
 #string binded to ^P/^N
 autoload history-search-end
