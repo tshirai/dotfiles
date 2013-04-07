@@ -27,6 +27,7 @@
   )
  )
 
+;; editor / dev
 (cond
  (run-emacs
   ;; el-get
