@@ -8,26 +8,41 @@
 (defun load_file(x)
   (load x))
 
+;; environment
+(load_file (substitute-in-file-name "~/dotfiles/emacs.d/environment.el"))
+
 ;; keybind
 (load_file (substitute-in-file-name "~/dotfiles/emacs.d/keybind.el"))
 
 ;; japanese
-(load_file (substitute-in-file-name "~/dotfiles/emacs.d/japanese.el"))
+(cond
+ (run-meadow
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/japanese_meadow.el"))
+  )
+ (run-cygwin
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/japanese_cygwin.el"))
+  )
+ (run-emacs
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/japanese.el"))
+  )
+ )
 
-;; el-get
-(load_file (substitute-in-file-name "~/dotfiles/emacs.d/el-get.el"))
-
-;; development environment
-(load_file (substitute-in-file-name "~/dotfiles/emacs.d/dev.el"))
-
-;; misc
-(load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc.el"))
+(cond
+ (run-emacs
+  ;; el-get
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/el-get.el"))
+  ;; development environment
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/dev.el"))
+  ;; misc
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc.el"))
+  ;; color
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/color.el"))
+  )
+ )
 
 ;; iswitchb
 (load_file (substitute-in-file-name "~/dotfiles/emacs.d/iswitchb_conf.el"))
 
-;; color
-(load_file (substitute-in-file-name "~/dotfiles/emacs.d/color.el"))
 
 
 
