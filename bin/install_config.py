@@ -30,7 +30,7 @@ def sh(command, validation = True):
     ret = os.system("%s" % command)
     if ret != 0 and validation:
         es("%s returns %d" % (command, ret))
-        sys.exit(-1)
+        # sys.exit(-1)
 
 def mksshdir():
     if not os.path.exists("%s/.ssh" % HOME):
@@ -50,7 +50,7 @@ def ln(src, dest = ""):
     if os.path.exists(dest):
         if not os.path.islink(dest):
             es("%s already exists and is a real file" % dest)
-            sys.exit(-1)
+            # sys.exit(-1)
         else:
             sh("rm %s" % dest)
     sh("ln -s %s %s" %(src, dest))
@@ -126,7 +126,7 @@ def main():
         sh("cp dotfiles/ssh/config .ssh/")
         sh("cp dotfiles/ssh/authorized_keys .ssh/")
         sh("chmod 600 .ssh/config .ssh/authorized_keys")
-        ln("%s/dotfiles/subversion/config" % HOME, ".subversion/config")
+        # ln("%s/dotfiles/subversion/config" % HOME, ".subversion/config")
     else:
         ws("only update related files.")
         ws("try %s -a to install all" % sys.argv[0])
