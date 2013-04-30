@@ -29,6 +29,12 @@
 
 ;; editor / dev
 (cond
+ (run-meadow
+  )
+ (run-cygwin
+  ;; misc
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc.el"))
+  )
  (run-emacs
   ;; el-get
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/el-get.el"))

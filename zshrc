@@ -1,4 +1,5 @@
 PATH=$PATH:~/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=~/.rbenv/bin:$PATH
 
 # set PROMPT, RPROMPT
 autoload -U colors
@@ -28,9 +29,9 @@ dumb*|emacs*)
   PROMPT2="%_%% "
   SPROMPT="%r is correct? [n,y,a,e]: "
   ;;
-xterm)
-  export TERM=xterm-color
-  ;;
+# xterm)
+  # export TERM=xterm-color
+  # ;;
 kterm)
   export TERM=kterm-color
   # set BackSpace control character

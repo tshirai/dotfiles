@@ -10,6 +10,9 @@
   "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+; disable echoback
+(add-hook 'comint-mode-hook (lambda () (setq comint-process-echoes t)))
+
 ;;scroll
 (setq scroll-step 2)
 
