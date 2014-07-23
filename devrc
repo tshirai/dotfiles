@@ -1,0 +1,21 @@
+# java
+# export JAVA_HOME=/usr/java/default
+# PATH=$JAVA_HOME/bin:$PATH
+
+# emacs24
+PATH=/usr/local/emacs/bin:$PATH
+# cask
+PATH=~/.cask/bin:$PATH
+# nodebrew
+PATH=~/.nodebrew/current/bin:$PATH
+# rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+alias be="bundle exec"
+alias ber="be ruby"
+
+# rbenv
+[[ -d ~/.rbenv/bin ]] && PATH=~/.rbenv/bin:$PATH
+# svn
+export SVN_EDITOR=`which emacs`
+
+export PATH

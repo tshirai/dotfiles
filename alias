@@ -20,14 +20,8 @@ alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
 
 unalias lv 2&> /dev/null > /dev/null
 which lv 2&> /dev/null > /dev/null
-if test $? -ne 0 
+if test $? -ne 0
 then
   alias lv=less
 fi
 
-alias be="bundle exec"
-alias ber="be ruby"
-
-############################33
-# environment variables
-export SVN_EDITOR=/usr/bin/emacs

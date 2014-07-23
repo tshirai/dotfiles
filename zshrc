@@ -1,5 +1,4 @@
 PATH=$PATH:~/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-PATH=~/.rbenv/bin:$PATH
 
 # set PROMPT, RPROMPT
 autoload -U colors
@@ -106,9 +105,7 @@ setopt complete_aliases # aliased ls needs if file/dir completions work
 hosts=( ${(@)${${(M)${(s:# :)${(zj:# :)${(Lf)"$([[ -f ~/.ssh/config ]] && < ~/.ssh/config)"}%%\#*}}##host(|name) *}#host(|name) }/\*} )
 zstyle ':completion:*:hosts' hosts $hosts
 ## do not complete remote files at scp.
-#zstyle ':completion:*:complete:scp:*:files' command command -
-
-
+zstyle ':completion:*:complete:scp:*:files' command command -
 
 alias where="command -v"
 alias j="jobs -l"
@@ -128,6 +125,8 @@ setopt RC_EXPAND_PARAM
 ## disable mail checking
 #MAILCHECK=0
 
+
 [[ -f ${DOTFILES}/alias ]] && source ${DOTFILES}/alias
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -f ${DOTFILES}/devrc ]] && source ${DOTFILES}/devrc
 [[ -f ~/.proxyrc ]] && source ~/.proxyrc
+
