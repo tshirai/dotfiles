@@ -2,12 +2,18 @@
 # export JAVA_HOME=/usr/java/default
 # PATH=$JAVA_HOME/bin:$PATH
 
+# Maven
+export MAVEN_OPTS="-Xms256m -Xmx512m"
+
 # emacs24
 PATH=/usr/local/emacs/bin:$PATH
+
 # cask
 PATH=~/.cask/bin:$PATH
+
 # nodebrew
 PATH=~/.nodebrew/current/bin:$PATH
+
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 alias be="bundle exec"
