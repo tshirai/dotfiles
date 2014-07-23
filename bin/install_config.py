@@ -139,6 +139,7 @@ def main():
     ln("%s/dotfiles/screenrc" % HOME, ".screenrc")
     ln("%s/dotfiles/tmux.conf" % HOME, ".tmux.conf")
     ln("%s/dotfiles/inputrc" % HOME, ".inputrc")
+    ln("%s/dotfiles/emacs.d/Cask" % HOME, ".emacs.d/Cask")
 
     mkdir("tmp")
     mkdir("proj")
