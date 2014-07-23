@@ -1,13 +1,41 @@
 ;; development environment
 
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ; インデントをスペースで
 (setq-default indent-tabs-mode nil)
 
 ; 空白文字の表示
-(require 'jaspace)
-(setq jaspace-modes t)
-(setq jaspace-highlight-tabs t)  ; highlight tabs
+;; http://piyolian.blogspot.jp/2011/12/emacs-whitespace-like-jaspace.html
+(when (and (>= emacs-major-version 23)
+           (require 'whitespace nil t))
+  (setq whitespace-style
+        '(face
+          tabs spaces newline trailing space-before-tab space-after-tab
+          space-mark tab-mark))
+  (let ((dark (eq 'dark (frame-parameter nil 'background-mode))))
+    (set-face-attribute 'whitespace-space nil
+                        :foreground (if dark "pink4" "azure3")
+                        :background 'unspecified)
+    (set-face-attribute 'whitespace-tab nil
+                        :foreground (if dark "gray20" "gray80")
+                        :background 'unspecified
+                        :strike-through t)
+    (set-face-attribute 'whitespace-newline nil
+                        :foreground (if dark "darkcyan" "darkseagreen")))
+  (setq whitespace-space-regexp "\\(　+\\)")
+  (setq whitespace-display-mappings
+        '((space-mark   ?\xA0  [?\xA4]  [?_]) ; hard space - currency
+          (space-mark   ?\x8A0 [?\x8A4] [?_]) ; hard space - currency
+          (space-mark   ?\x920 [?\x924] [?_]) ; hard space - currency
+          (space-mark   ?\xE20 [?\xE24] [?_]) ; hard space - currency
+          (space-mark   ?\xF20 [?\xF24] [?_]) ; hard space - currency
+          (space-mark   ?　    [?□]    [?＿]) ; full-width space - square
+          (newline-mark ?\n    [?\xAB ?\n])   ; eol - right quote mark
+          ))
+  (setq whitespace-global-modes '(not dired-mode tar-mode))
+  (global-whitespace-mode 1))
 
 ;; turn on font-lock mode
 (when (fboundp 'global-font-lock-mode)
@@ -49,7 +77,7 @@
 ;;JavaScript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (autoload 'javascript-mode "javascript" nil t)
-(setq javascript-indent-level 2)
+(setq js-indent-level 2)
 
 ;;CSS
 (autoload 'css-mode "css-mode")
@@ -258,3 +286,5 @@
 ;;; yaml-mode の設定
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+

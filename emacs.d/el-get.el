@@ -2,13 +2,31 @@
 ;; el-get インストール後のロードパスの用意
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 ;; もし el-get がなければインストールを行う
+(setq-default el-get-emacswiki-base-url
+              "https://raw.github.com/emacsmirror/emacswiki.org/master/")
 (unless (require 'el-get nil t)
   (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
      (let (el-get-master-branch)
        (end-of-buffer)
        (eval-print-last-sexp)))))
+(setq el-get-github-default-url-type 'https)
+;; (setq-default el-get-emacswiki-base-url
+;;               "http://raw.github.com/emacsmirror/emacswiki.org/master/")
+;; (unless (require 'el-get nil 'noerror)
+;;   (with-current-buffer
+;;       (url-retrieve-synchronously
+;;        "https://github.com/dimitri/el-get/master/el-get-install.el")
+;;     (let (el-get-master-branch)
+;;      (goto-char (point-max))
+;;      (eval-print-last-sexp))))
+
+;; (add-to-list 'el-get-recipe-path
+;;              (expand-file-name (concat user-emacs-directory "recipes")))
+
+;; (setq el-get-github-default-url-type 'https)
+
 (require 'el-get)
 
 (setq el-get-sources
@@ -58,7 +76,7 @@
 
 (el-get 'sync)
 
-; (el-get-install ansi-color)
+(el-get-install 'ansi-color)
 (el-get-install 'apache-mode)
 (el-get-install 'auto-complete)
 (el-get-install 'auto-indent-mode)

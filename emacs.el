@@ -36,8 +36,13 @@
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc.el"))
   )
  (run-emacs
-  ;; el-get
-  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/el-get.el"))
+  ;; ;; el-get
+  ;; (load_file (substitute-in-file-name "~/dotfiles/emacs.d/el-get.el"))
+
+  ;; cask
+  (require 'cask "~/.cask/cask.el")
+  (cask-initialize)
+
   ;; development environment
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/dev.el"))
   ;; misc

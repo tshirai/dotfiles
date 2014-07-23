@@ -63,3 +63,5 @@
 	gn = grep -n
 [github]
 	user = tshirai
+[url "https://"]
+	insteadOf = git://

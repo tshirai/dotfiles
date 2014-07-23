@@ -41,39 +41,27 @@
 ;; (autoload 'kill-summary "kill-summary" nil t)
 ;; (global-set-key "\M-y" 'kill-summary)
 (global-set-key "\M-y" 'browse-kill-ring)
+(setq kill-ring-max 100)
 
 
 ;; mcomplete
-(require 'mcomplete) (turn-on-mcomplete-mode)
+; (require 'mcomplete) (turn-on-mcomplete-mode)
 
-;; session.el
-(when (require 'session nil t)
-  (add-hook 'after-init-hook 'session-initialize))
-(when (require 'session nil t)
-  (setq session-initialize '(de-saveplace session keys menus)
-        session-globals-include '((kill-ring 50)
-                                  (session-file-alist 100 t)
-                                  (file-name-history 100)))
-  (add-hook 'after-init-hook 'session-initialize))
+;; ミニバッファの履歴を保存する
+(savehist-mode 1)
 
-;;minibuf-isearch
-;(require 'minibuf-isearch)
+;; ミニバッファの履歴の保存数を増やす
+(setq history-length 3000)
 
 ; word-count
 (autoload 'word-count-mode "word-count"
           "Minor mode to count words." t nil)
 ;(global-set-key "\M-+" 'word-count-mode)
 
-;; (require 'wb-line-number)
-;; ; 起動時にONにする
-;; ; (wb-line-number-toggle)
-;; (setq truncate-partial-width-windows nil) ; use continuous line
-
+;; show line number
 (require 'linum)
 (setq linum-format "%5d|") ; 5 桁分の領域を確保して行番号のあとにスペースを入れる
 ; (global-linum-mode nil)      ; デフォルトで linum-mode を有効にする
-
-;;;; OK ;;;;;
 
 ;; delete ~
 (setq make-backup-files nil)
@@ -81,3 +69,28 @@
 ;; hide menu bar
 (menu-bar-mode -1)
 
+;; http://d.hatena.ne.jp/mooz/20101003/p1
+;; zsh-like minibuffer
+(require 'zlc)
+(setq zlc-select-completion-immediately t)
+(let ((map minibuffer-local-map))
+  ;;; like menu select
+  (define-key map (kbd "<down>")  'zlc-select-next-vertical)
+  (define-key map (kbd "<up>")    'zlc-select-previous-vertical)
+  (define-key map (kbd "<right>") 'zlc-select-next)
+  (define-key map (kbd "<left>")  'zlc-select-previous)
+
+  ;;; reset selection
+  (define-key map (kbd "C-c") 'zlc-reset)
+  )
+
+;; anything
+;; (require 'anything-startup)
+;; (global-set-key (kbd "C-x b") 'anything-for-files)
+;; (global-set-key (kbd "M-y") 'anything-show-kill-ring)
+;; (global-set-key (kbd "C-x M-x") 'anything-M-x)
+;; recentf
+(require 'recentf)
+(setq recentf-save-file "~/.emacs.d/.recentf")
+(setq recentf-max-saved-items 100)
+(require 'recentf-ext)
