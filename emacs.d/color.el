@@ -1,4 +1,13 @@
-(load-theme 'manoj-dark t);
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; (color-theme-hober)
+;(load-theme 'manoj-dark t)
+;(load-theme 'tango-dark t)
+
+(add-to-list 'custom-theme-load-path
+             (file-name-as-directory "~/.emacs.d/.emacs.d/.cask/24.3.1/elpa/replace-colorthemes-20140604.1625/"))
+(load-theme 'clarity t)
+
 
 ;; (defmacro tty-color-define-1 (n c r g b)
 ;;   `(tty-color-define ,n ,c (list (* 257 ,r) (* 257 ,g) (* 257 ,b))))

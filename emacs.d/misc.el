@@ -71,24 +71,33 @@
 
 ;; http://d.hatena.ne.jp/mooz/20101003/p1
 ;; zsh-like minibuffer
-(require 'zlc)
-(setq zlc-select-completion-immediately t)
-(let ((map minibuffer-local-map))
-  ;;; like menu select
-  (define-key map (kbd "<down>")  'zlc-select-next-vertical)
-  (define-key map (kbd "<up>")    'zlc-select-previous-vertical)
-  (define-key map (kbd "<right>") 'zlc-select-next)
-  (define-key map (kbd "<left>")  'zlc-select-previous)
+;; (require 'zlc)
+;; (zlc-mode t)
+;; ; (setq zlc-select-completion-immediately t)
+;; (let ((map minibuffer-local-map))
+;;   ;;; like menu select
+;;   (define-key map (kbd "<down>")  'zlc-select-next-vertical)
+;;   (define-key map (kbd "<up>")    'zlc-select-previous-vertical)
+;;   (define-key map (kbd "<right>") 'zlc-select-next)
+;;   (define-key map (kbd "<left>")  'zlc-select-previous)
 
-  ;;; reset selection
-  (define-key map (kbd "C-c") 'zlc-reset)
-  )
+;;   ;;; reset selection
+;;   (define-key map (kbd "C-c") 'zlc-reset)
+;;   )
+
+(require 'ido)
+(ido-mode 'file)
+; (ido-everywhere t)
+(custom-set-variables '(ido-max-directory-size 'const))
+(custom-set-variables '(ido-enter-matching-directory 'first))
+(custom-set-variables '(ido-ignore-files (cons '"\\`\\." ido-ignore-files)))
+(define-key ido-file-dir-completion-map (kbd "SPC") 'ido-exit-minibuffer)
 
 ;; anything
-;; (require 'anything-startup)
-;; (global-set-key (kbd "C-x b") 'anything-for-files)
-;; (global-set-key (kbd "M-y") 'anything-show-kill-ring)
-;; (global-set-key (kbd "C-x M-x") 'anything-M-x)
+(require 'anything-startup)
+(global-set-key (kbd "C-x b") 'anything-for-files)
+(global-set-key (kbd "M-y") 'anything-show-kill-ring)
+(global-set-key (kbd "C-x M-x") 'anything-M-x)
 ;; recentf
 (require 'recentf)
 (setq recentf-save-file "~/.emacs.d/.recentf")
