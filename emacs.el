@@ -47,6 +47,8 @@
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/dev.el"))
   ;; misc
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc.el"))
+  ;; misc ex
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc_ex.el"))
   ;; color
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/color.el"))
   )
