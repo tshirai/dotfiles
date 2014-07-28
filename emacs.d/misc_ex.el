@@ -1,5 +1,9 @@
 ;; without cask
 
+;; popwin
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)
+
 ;; anything
 (require 'anything-startup)
 (global-set-key (kbd "C-x b") 'anything-for-files)
