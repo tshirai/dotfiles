@@ -43,12 +43,12 @@
   (require 'cask "~/.cask/cask.el")
   (cask-initialize)
 
-  ;; development environment
-  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/dev.el"))
   ;; misc
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc.el"))
   ;; misc ex
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/misc_ex.el"))
+  ;; development environment
+  (load_file (substitute-in-file-name "~/dotfiles/emacs.d/dev.el"))
   ;; color
   (load_file (substitute-in-file-name "~/dotfiles/emacs.d/color.el"))
   )

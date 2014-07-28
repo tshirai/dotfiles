@@ -10,6 +10,11 @@
   "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; popwin
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)
+
+
 ; disable echoback
 (add-hook 'comint-mode-hook (lambda () (setq comint-process-echoes t)))
 

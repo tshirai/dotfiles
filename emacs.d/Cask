@@ -3,23 +3,31 @@
 (source marmalade)
 
 (depends-on "ag")
-(depends-on "anything")
-(depends-on "auto-complete")
-(depends-on "browse-kill-ring")
+
 (depends-on "elscreen" :git "git@github.com:knu/elscreen.git")
-(depends-on "flycheck")
-(depends-on "hlinum")
 (depends-on "git-gutter")
 (depends-on "pbcopy")
 (depends-on "popup")
 (depends-on "popwin")
 (depends-on "powerline")
 (depends-on "quickrun")
-(depends-on "recentf-ext")
-(depends-on "replace-colorthemes" :git "git@github.com:emacs-jp/replace-colorthemes.git")
+
+;; input
+(depends-on "auto-complete")
 ; (depends-on "tail")
 (depends-on "yasnippet")
+(depends-on "flycheck")
+
+;; mini buffer
+(depends-on "anything")
+(depends-on "recentf-ext")
+(depends-on "browse-kill-ring")
 (depends-on "zlc")
+
+;; Appearance
+(depends-on "replace-colorthemes" :git "git@github.com:emacs-jp/replace-colorthemes.git")
+(depends-on "rainbow-delimiters")
+(depends-on "hlinum")
 
 ;; prog modes
 (depends-on "coffee-mode")
@@ -30,6 +38,7 @@
 (depends-on "motion-mode")
 (depends-on "puppet-mode")
 (depends-on "haml-mode")
+(depends-on "markdown-mode")
 (depends-on "nginx-mode")
 (depends-on "python-mode")
 (depends-on "rhtml-mode")

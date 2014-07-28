@@ -3,7 +3,11 @@
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-; インデントをスペースで
+;; quickrun
+(require 'quickrun)
+(push '("*quickrun*") popwin:special-display-config)
+
+;; インデントをスペースで
 (setq-default indent-tabs-mode nil)
 
 ; 空白文字の表示
