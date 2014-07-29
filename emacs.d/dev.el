@@ -84,7 +84,8 @@
 ; (setq js-indent-level 2)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (autoload 'js2-mode "js2-mode" nil t)
-(setq js-indent-level 2)
+; (setq-default c-basic-offset 2)
+(setq js2-basic-offset 2)
 
 ;;CSS
 (autoload 'css-mode "css-mode")
