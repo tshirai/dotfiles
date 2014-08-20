@@ -26,6 +26,9 @@ alias ber="be ruby"
 
 # rbenv
 [[ -d ~/.rbenv/bin ]] && PATH=~/.rbenv/bin:$PATH
+which rbenv 2> /dev/null 1> /dev/null
+[[ $? -eq 0 ]] && eval "$(rbenv init -)"
+
 # svn
 export SVN_EDITOR=`which emacs`
 
