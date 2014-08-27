@@ -29,6 +29,9 @@
 (depends-on "rainbow-delimiters")
 (depends-on "hlinum")
 
+;; convert
+(depends-on "json-reformat")
+
 ;; prog modes
 (depends-on "coffee-mode")
 (depends-on "go-mode")
@@ -52,5 +55,8 @@
 (depends-on "ruby-block")
 (depends-on "ruby-electric")
 (depends-on "ruby-end")
+(depends-on "robe")
+(depends-on "inf-ruby")
+
 
 (depends-on "go-autocomplete")

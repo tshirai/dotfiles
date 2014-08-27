@@ -2,6 +2,7 @@
 
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+; (flycheck-add-next-checker 'javascript-jshint)
 
 ;; quickrun
 (require 'quickrun)
@@ -87,6 +88,9 @@
 ; (setq-default c-basic-offset 2)
 (setq js2-basic-offset 2)
 
+;; JSON
+(add-hook 'json-mode-hook 'flycheck-mode)
+
 ;;CSS
 (autoload 'css-mode "css-mode")
 (setq auto-mode-alist
@@ -114,6 +118,7 @@
       (append '(("\\.rake$" . ruby-mode)) auto-mode-alist))
 (setq interpreter-mode-alist (append '(("ruby" . ruby-mode))
                                      interpreter-mode-alist))
+;; inf-ruby
 (autoload 'run-ruby "inf-ruby"
   "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby"
@@ -121,6 +126,13 @@
 (add-hook 'ruby-mode-hook
           '(lambda ()
              (inf-ruby-keys)))
+
+;; robocop
+(require 'rubocop)
+(add-hook 'ruby-mode-hook 'rubocop-mode)
+
+;; robe
+(add-hook 'ruby-mode-hook 'robe-mode)
 
 ;; for Rails
 (defun try-complete-abbrev (old)
