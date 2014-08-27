@@ -1,5 +1,10 @@
 #! /bin/bash
-curl -L git.io/nodebrew | perl - setup
+
+# curl -L git.io/nodebrew | perl - setup
+
+wget git.io/nodebrew -O ~/tmp/nodebrew
+perl ~/tmp/nodebrew setup
+
 nodebrew install latest
 nodebrew use latest
 if [ ! "${http_proxy}" = "" ]; then

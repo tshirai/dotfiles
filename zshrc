@@ -128,5 +128,6 @@ setopt RC_EXPAND_PARAM
 
 [[ -f ${DOTFILES}/alias ]] && source ${DOTFILES}/alias
 [[ -f ${DOTFILES}/devrc ]] && source ${DOTFILES}/devrc
+[[ -f /etc/proxyrc ]] && source /etc/proxyrc
 [[ -f ~/.proxyrc ]] && source ~/.proxyrc
 

@@ -25,7 +25,11 @@ alias be="bundle exec"
 alias ber="be ruby"
 
 # rbenv
-[[ -d ~/.rbenv/bin ]] && PATH=~/.rbenv/bin:$PATH
+if [ -d ~/.rbenv/bin ]; then
+    PATH=~/.rbenv/bin:$PATH
+elif [ -d /opt/rbenv ]; then
+    PATH=~/.rbenv/bin:$PATH
+fi
 which rbenv 2> /dev/null 1> /dev/null
 [[ $? -eq 0 ]] && eval "$(rbenv init -)"
 
