@@ -5,19 +5,32 @@
 # Maven
 export MAVEN_OPTS="-Xms256m -Xmx512m"
 
-# emacs24
-PATH=~/local/emacs/bin:/usr/local/emacs/bin:$PATH
-
 # pyenv
 export PYENV_ROOT=~/.pyenv
-PATH=${PYENV_ROOT}/bin:$PATH
+[[ -d ~/.pyenv ]] && PATH=~/.pyenv/bin:$PATH
 which pyenv > /dev/null 2> /dev/null && eval "$(pyenv init -)"
 
+# phpenv
+[[ -d ~/.phpenv ]] && PATH=~/.phpenv/bin:$PATH
+which phpenv > /dev/null 2> /dev/null && eval "$(phpenv init -)"
+
+
+# emacs24
+if [ -d ~/local/emacs ]; then
+  PATH=~/local/emacs/bin$PATH
+elif [ -d /usr/local/emacs ]; then
+  PATH=/usr/local/emacs/bin:$PATH
+fi
+
 # cask
-PATH=~/.cask/bin:$PATH
+if [ -d ~/.cask ]; then
+  PATH=~/.cask/bin:$PATH
+fi
 
 # nodebrew
-PATH=~/.nodebrew/current/bin:$PATH
+if [ -d ~/.nodebrew ]; then
+  PATH=~/.nodebrew/current/bin:$PATH
+fi
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -30,8 +43,14 @@ if [ -d ~/.rbenv/bin ]; then
 elif [ -d /opt/rbenv ]; then
     PATH=/opt/rbenv/bin:$PATH
 fi
-which rbenv 2> /dev/null 1> /dev/null
-[[ $? -eq 0 ]] && eval "$(rbenv init -)"
+which rbenv 2> /dev/null 1> /dev/null && eval "$(rbenv init -)"
+
+# java
+if [ -d /usr/java/default ]; then
+   export JAVA_HOME=/usr/java/default
+   export PATH=$PATH:$JAVA_HOME/bin
+   export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+fi
 
 # svn
 export SVN_EDITOR=`which emacs`
