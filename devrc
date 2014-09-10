@@ -48,7 +48,7 @@ which rbenv 2> /dev/null 1> /dev/null && eval "$(rbenv init -)"
 # java
 if [ -d /usr/java/default ]; then
    export JAVA_HOME=/usr/java/default
-   export PATH=$PATH:$JAVA_HOME/bin
+   export PATH=$JAVA_HOME/bin:$PATH
    export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 fi
 
