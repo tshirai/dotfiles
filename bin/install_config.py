@@ -110,7 +110,7 @@ zstyle ':completion:*:complete:scp:*:files' command command -
 def dot_emacs():
     content = \
 """
-(load "~/dotfiles/emacs.el")
+(load "~/dotfiles/emacs.d/init.el")
 """
     return content
 
@@ -121,7 +121,7 @@ def main():
         # write_f(".bash_profile", bash_profile())
         # write_f(".bashrc", bashrc())
         write_f(".zshrc", zshrc())
-        write_f(".emacs", dot_emacs())
+        write_f(".emacs.d/init.el", dot_emacs())
         mksshdir()
         sh("cp dotfiles/ssh/config .ssh/")
         sh("cp dotfiles/ssh/authorized_keys .ssh/")
