@@ -19,7 +19,8 @@
 (depends-on "flycheck")
 
 ;; mini buffer
-(depends-on "anything")
+; (depends-on "anything")
+(depends-on "helm")
 (depends-on "recentf-ext")
 (depends-on "browse-kill-ring")
 (depends-on "zlc")
