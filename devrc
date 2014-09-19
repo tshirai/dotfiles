@@ -17,7 +17,7 @@ which phpenv > /dev/null 2> /dev/null && eval "$(phpenv init -)"
 
 # emacs24
 if [ -d ~/local/emacs ]; then
-  PATH=~/local/emacs/bin$PATH
+  PATH=~/local/emacs/bin:$PATH
 elif [ -d /usr/local/emacs ]; then
   PATH=/usr/local/emacs/bin:$PATH
 fi
