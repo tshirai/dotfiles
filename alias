@@ -7,10 +7,9 @@ alias lla="ls -la"
 alias lld="ls -ld"
 alias sl=ls
 
+# load server default configuration
 DIRCOLOR_FILE=`\ls -1f ~/.dir_colors ${DOTFILES}/dir_colors /etc/DIR_COLORS.256color /etc/DIR_COLORS 2> /dev/null | head -1`
 [[ ! "${DIRCOLOR_FILE}" = "" ]] && eval $(dircolors -b ${DIRCOLOR_FILE})
-# [[ ! "${DIRCOLOR_FILE}" = "" ]] && eval $(dircolors -b /etc/DIR_COLORS.256color)
-
 
 alias du="du -h"
 alias df="df -h"

@@ -52,11 +52,13 @@ EIGHTBIT 1
 
 #NORMAL 00	# global default, no color code at all
 #FILE 00	# normal file, use no color at all
-RESET 0 # reset to "normal" color
+# uncomment RESET for CentOS 5
+# RESET 0 # reset to "normal" color
 DIR 38;5;27	# directory
 LINK 38;5;51	# symbolic link (If you set this to 'target' instead of a
 		# numerical value, the color is as for the file pointed to.)
-MULTIHARDLINK 44;38;5;15 # regular file with more than one link
+# uncomment MULTIHARDLINK for CentOS 5
+# MULTIHARDLINK 44;38;5;15 # regular file with more than one link
 FIFO 40;38;5;11	# pipe
 SOCK 38;5;13	# socket
 DOOR 38;5;5	# door
@@ -66,7 +68,8 @@ ORPHAN 48;5;232;38;5;9  # symlink to nonexistent file, or non-stat'able file
 MISSING 05;48;5;232;38;5;15 # ... and the files they point to
 SETUID 48;5;196;38;5;15	# file that is setuid (u+s)
 SETGID 48;5;11;38;5;16	# file that is setgid (g+s)
-CAPABILITY 48;5;196;38;5;226	# file with capability
+# uncomment CAPABILITY for CentOS 5
+# CAPABILITY 48;5;196;38;5;226	# file with capability
 STICKY_OTHER_WRITABLE 48;5;10;38;5;16 # dir that is sticky and other-writable (+t,o+w)
 OTHER_WRITABLE 48;5;10;38;5;21 # dir that is other-writable (o+w) and not sticky
 STICKY 48;5;21;38;5;15	# dir with the sticky bit set (+t) and not other-writable
@@ -189,6 +192,8 @@ EXEC 38;5;34
 .oga 38;5;45
 .spx 38;5;45
 .xspf 38;5;45
+
+
 
 # document files
 .pdf 00;38;05;76
