@@ -7,8 +7,23 @@ alias lla="ls -la"
 alias lld="ls -ld"
 alias sl=ls
 
+DIRCOLOR_FILE=`\ls -1f ~/.dir_colors ${DOTFILES}/dir_colors /etc/DIR_COLORS.256color /etc/DIR_COLORS 2> /dev/null | head -1`
+[[ ! "${DIRCOLOR_FILE}" = "" ]] && eval $(dircolors -b ${DIRCOLOR_FILE})
+# [[ ! "${DIRCOLOR_FILE}" = "" ]] && eval $(dircolors -b /etc/DIR_COLORS.256color)
+
+
 alias du="du -h"
 alias df="df -h"
+
+alias su="su -l"
+alias top="top -d 1"
+#alias xqbiff="xqbiff -mode=pop -pt 0 -na -sort=new"
+
+alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
+
+
+###########################
+# color
 
 if [ -x `which colordiff 2> /dev/null 1> /dev/null` ]; then
   alias diff="colordiff -u"
@@ -32,14 +47,18 @@ else
   alias lv=less
 fi
 
-alias su="su -l"
+alias grep="grep -E --binary-files=without-match --color=tty"
 
-alias grep="grep -E --color=tty"
-alias top="top -d 1"
-#alias xqbiff="xqbiff -mode=pop -pt 0 -na -sort=new"
-
-alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
-
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
 
 ##############################
 # chef, knife
