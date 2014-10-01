@@ -1,34 +1,50 @@
 ############################
 # aliases
-alias ls='ls -F --color=tty'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lld='ls -ld'
+alias ls="ls -F --color=tty"
+alias ll="ls -lh"
+alias la="ls -a"
+alias lla="ls -la"
+alias lld="ls -ld"
 alias sl=ls
 
 alias du="du -h"
 alias df="df -h"
 
-alias su="su -l"
+if [ -x `which colordiff 2> /dev/null 1> /dev/null` ]; then
+  alias diff="colordiff -u"
+elif [ -x `which git 2> /dev/null 1> /dev/null` ]; then
+  alias diff="git diff"
+else
+  alias diff="diff -u"
+fi
 
-alias grep='grep -E --color=tty'
-alias top='top -d 1'
-#alias xqbiff='xqbiff -mode=pop -pt 0 -na -sort=new'
+if [ -x `which pygmentize 2> /dev/null 1> /dev/null` ]; then
+  alias ccat='pygmentize -O style=monokai -f console256 -g'
+  which lessfilter 2> /dev/null 1> /dev/null && export LESSOPEN="|lessfilter %s"
+fi
 
-alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
+export LESS="-R"
 
-unalias lv 2&> /dev/null > /dev/null
-which lv 2&> /dev/null > /dev/null
-if test $? -ne 0
-then
+# unalias lv 2> /dev/null 1> /dev/null
+if [ -x `which lv 2> /dev/null 1> /dev/null` ]; then
+  alias lv="lv -c"
+else
   alias lv=less
 fi
 
+alias su="su -l"
+
+alias grep="grep -E --color=tty"
+alias top="top -d 1"
+#alias xqbiff="xqbiff -mode=pop -pt 0 -na -sort=new"
+
+alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
+
+
 ##############################
 # chef, knife
-alias knife='vendor/bin/knife'
-alias cook='knife solo cook'
-alias cookbook='knife cookbook'
-alias cookbook-create='knife cookbook create'
+alias knife="vendor/bin/knife"
+alias cook="knife solo cook"
+alias cookbook="knife cookbook"
+alias cookbook-create="knife cookbook create"
 
