@@ -11,6 +11,8 @@ sudo yum install bzip2 bzip2-libs bzip2-devel -y
 
 cd ~
 git clone git://github.com/yyuu/pyenv.git .pyenv
+
+export PATH=~/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 cd .pyenv/plugins
 git clone git://github.com/yyuu/pyenv-virtualenv.git
