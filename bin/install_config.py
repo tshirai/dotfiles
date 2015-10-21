@@ -121,6 +121,7 @@ def main():
         # write_f(".bash_profile", bash_profile())
         # write_f(".bashrc", bashrc())
         write_f(".zshrc", zshrc())
+        mkdir(".emacs.d")
         write_f(".emacs.d/init.el", dot_emacs())
         mksshdir()
         sh("cp dotfiles/ssh/config .ssh/")
