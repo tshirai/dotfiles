@@ -4,7 +4,7 @@
 
 (depends-on "ag")
 
-(depends-on "elscreen" :git "git@github.com:knu/elscreen.git")
+(depends-on "elscreen")
 (depends-on "git-gutter")
 (depends-on "pbcopy")
 (depends-on "popup")
@@ -26,7 +26,7 @@
 (depends-on "zlc")
 
 ;; Appearance
-(depends-on "replace-colorthemes" :git "git@github.com:emacs-jp/replace-colorthemes.git")
+(depends-on "color-theme-modern")
 (depends-on "rainbow-delimiters")
 (depends-on "hlinum")
 

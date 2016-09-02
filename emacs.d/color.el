@@ -5,7 +5,7 @@
 ;(load-theme 'tango-dark t)
 
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.emacs.d/.cask/24.3.1/elpa/replace-colorthemes-20140604.1625/"))
+             (file-name-as-directory "~/.emacs.d/.cask/24.5/elpa/color-theme-modern-20160411.1846/"))
 (load-theme 'clarity t)
 
 
