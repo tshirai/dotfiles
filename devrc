@@ -15,7 +15,7 @@ which pyenv > /dev/null 2> /dev/null && eval "$(pyenv init -)"
 which phpenv > /dev/null 2> /dev/null && eval "$(phpenv init -)"
 
 
-# emacs24
+# emacs
 if [ -d ~/local/emacs ]; then
   PATH=~/local/emacs/bin:$PATH
 elif [ -d /usr/local/emacs ]; then
@@ -31,6 +31,13 @@ fi
 if [ -d ~/.nodebrew ]; then
   PATH=~/.nodebrew/current/bin:$PATH
 fi
+
+# # nvm
+# if [ -f ~/.nvm/nvm.sh ]; then
+#   export NVM_DIR=~/.nvm
+#   . ~/.nvm/nvm.sh
+# fi
+
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

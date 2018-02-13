@@ -7,7 +7,7 @@ if [ -f ~/.wgetrc ]; then
 fi
 echo "check_certificate = off" >> ~/.wgetrc
 
-sudo yum install bzip2 bzip2-libs bzip2-devel -y
+sudo yum install bzip2 bzip2-libs bzip2-devel patch -y
 
 cd ~
 git clone git://github.com/yyuu/pyenv.git .pyenv

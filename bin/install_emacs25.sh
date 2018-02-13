@@ -1,11 +1,11 @@
 #! /bin/bash
 
-set -ex 
+set -ex
 
 cd ~/local/src/
 
 # sudo yum install xz -y
-ver=25.2
+ver=25.3
 
 [ -f emacs-${ver}.tar.xz ] && rm emacs-${ver}.tar.xz
 wget http://ftp.jaist.ac.jp/pub/GNU/emacs/emacs-${ver}.tar.xz
