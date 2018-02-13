@@ -36,6 +36,7 @@
 ;; prog modes
 (depends-on "coffee-mode")
 (depends-on "go-mode")
+(depends-on "groovy-mode")
 (depends-on "js2-mode")
 (depends-on "json-mode")
 (depends-on "less-css-mode")
