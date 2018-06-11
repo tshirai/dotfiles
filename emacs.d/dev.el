@@ -127,9 +127,15 @@
           '(lambda ()
              (inf-ruby-keys)))
 
+;; flycheck + rubocop
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (setq flycheck-checker 'ruby-rubocop)
+               (flycheck-mode 1)))
+
 ;; robocop
-(require 'rubocop)
-(add-hook 'ruby-mode-hook 'rubocop-mode)
+; (require 'rubocop)
+; (add-hook 'ruby-mode-hook 'rubocop-mode)
 
 ;; robe
 (add-hook 'ruby-mode-hook 'robe-mode)

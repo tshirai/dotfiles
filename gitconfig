@@ -14,7 +14,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	# convert CRLF
-	autocrlf = input
+        autocrlf = false
 [alias]
 	st = status
 	sh = show
