@@ -59,10 +59,3 @@ man() {
     man "$@"
 }
 
-##############################
-# chef, knife
-alias knife="vendor/bin/knife"
-alias cook="knife solo cook"
-alias cookbook="knife cookbook"
-alias cookbook-create="knife cookbook create"
-
