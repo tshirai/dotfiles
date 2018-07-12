@@ -5,28 +5,6 @@
 # Maven
 export MAVEN_OPTS="-Xms256m -Xmx512m"
 
-# pyenv
-export PYENV_ROOT=~/.pyenv
-[[ -d ~/.pyenv ]] && PATH=~/.pyenv/bin:$PATH
-which pyenv > /dev/null 2> /dev/null && eval "$(pyenv init -)"
-
-# phpenv
-[[ -d ~/.phpenv ]] && PATH=~/.phpenv/bin:$PATH
-which phpenv > /dev/null 2> /dev/null && eval "$(phpenv init -)"
-
-
-# emacs
-if [ -d ~/local/emacs ]; then
-  PATH=~/local/emacs/bin:$PATH
-elif [ -d /usr/local/emacs ]; then
-  PATH=/usr/local/emacs/bin:$PATH
-fi
-
-# cask
-if [ -d ~/.cask ]; then
-  PATH=~/.cask/bin:$PATH
-fi
-
 # nodebrew
 if [ -d ~/.nodebrew ]; then
   PATH=~/.nodebrew/current/bin:$PATH
@@ -39,6 +17,27 @@ if [ -f ~/.nvm/nvm.sh ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
+# pyenv
+export PYENV_ROOT=~/.pyenv
+[[ -d ~/.pyenv ]] && PATH=~/.pyenv/bin:$PATH
+which pyenv > /dev/null 2> /dev/null && eval "$(pyenv init -)"
+which pyenv > /dev/null 2> /dev/null && pyenv which aws_zsh_completer.sh > /dev/null 2> /dev/null && source "$(pyenv which aws_zsh_completer.sh)"
+
+# phpenv
+[[ -d ~/.phpenv ]] && PATH=~/.phpenv/bin:$PATH
+which phpenv > /dev/null 2> /dev/null && eval "$(phpenv init -)"
+
+# emacs
+if [ -d ~/local/emacs ]; then
+  PATH=~/local/emacs/bin:$PATH
+elif [ -d /usr/local/emacs ]; then
+  PATH=/usr/local/emacs/bin:$PATH
+fi
+
+# cask
+if [ -d ~/.cask ]; then
+  PATH=~/.cask/bin:$PATH
+fi
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -64,3 +63,4 @@ fi
 export SVN_EDITOR=`which emacs`
 
 export PATH
+
