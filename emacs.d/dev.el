@@ -314,3 +314,21 @@
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 
+;; golang
+;; (add-to-list 'exec-path (expand-file-name "/usr/local/opt/go/libexec/bin"))
+(add-to-list 'exec-path (expand-file-name "~/.goenv/shims"))
+(add-to-list 'exec-path (expand-file-name "~/.goenv/bin"))
+(add-to-list 'exec-path (expand-file-name "~/go/bin"))
+(require 'go-mode)
+(require 'company-go)
+
+(add-hook 'go-mode-hook 'company-mode)
+(add-hook 'go-mode-hook 'flycheck-mode)
+(add-hook 'go-mode-hook (lambda()
+           ;(add-hook 'before-save-hook' 'gofmt-before-save)
+           (local-set-key (kbd "M-.") 'godef-jump)
+           (set (make-local-variable 'company-backends) '(company-go))
+           (company-mode)
+           (setq indent-tabs-mode nil)
+           (setq c-basic-offset 2)
+           (setq tab-width 2)))

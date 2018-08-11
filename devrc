@@ -66,5 +66,15 @@ fi
 # svn
 export SVN_EDITOR=`which emacs`
 
+# go
+if [ -d ~/.goenv ]; then
+  export GOENV_ROOT=$HOME/.goenv
+  export PATH=$GOENV_ROOT/bin:$PATH
+  eval "$(goenv init -)"
+  export GOPATH=$HOME/go
+  export GOROOT=`go env GOROOT`
+fi
+
+# last
 export PATH
 
