@@ -5,6 +5,8 @@
 wget git.io/nodebrew -O ~/tmp/nodebrew
 perl ~/tmp/nodebrew setup
 
+export PATH=~/.nodebrew/current/bin:$PATH
+
 nodebrew install latest
 nodebrew use latest
 if [ ! "${http_proxy}" = "" ]; then
