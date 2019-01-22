@@ -118,6 +118,9 @@
       (append '(("\\.rake$" . ruby-mode)) auto-mode-alist))
 (setq interpreter-mode-alist (append '(("ruby" . ruby-mode))
                                      interpreter-mode-alist))
+; magic comment about utf-8 is not needed
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;; inf-ruby
 (autoload 'run-ruby "inf-ruby"
   "Run an inferior Ruby process")
