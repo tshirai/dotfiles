@@ -24,13 +24,7 @@ alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
 ###########################
 # color
 
-if [ -x `which colordiff 2> /dev/null 1> /dev/null` ]; then
-  alias diff="colordiff -u"
-elif [ -x `which git 2> /dev/null 1> /dev/null` ]; then
-  alias diff="git diff"
-else
-  alias diff="diff -u"
-fi
+alias diff="diff -u"
 
 if [ -x `which pygmentize 2> /dev/null 1> /dev/null` ]; then
   alias ccat='pygmentize -O style=monokai -f console256 -g'
