@@ -10,3 +10,7 @@ fi
 if [ ! -f ~/.rbenv/plugins/ruby-build ]; then
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
+
+if [ ! -f ~/.rbenv/plugins/rbenv-update ]; then
+    git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
+fi
