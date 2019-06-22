@@ -114,7 +114,6 @@ def dot_emacs():
 """
     return content
 
-
 def main():
     cd(HOME)
     if len(sys.argv) == 2 and sys.argv[1] == "-a":
@@ -147,8 +146,10 @@ def main():
     mkdir("local/src")
     mkdir("local/bin")
     mkdir("archives")
-    return 0
 
+    sh("touch ~/.abbrev_defs")
+
+    return 0
 
 if __name__ == "__main__":
     sys.exit(main())

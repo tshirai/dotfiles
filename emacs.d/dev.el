@@ -109,6 +109,9 @@
 (setq auto-mode-alist
       (cons (cons "\\.py$" 'python-mode) auto-mode-alist))
 
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+(setq flymake-python-pyflakes-executable "~/.pyenv/shims/flake8")
+
 ;;ruby
 (autoload 'ruby-mode "ruby-mode"
   "Mode for editing ruby source files" t)

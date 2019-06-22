@@ -62,3 +62,5 @@
 
 (depends-on "company-go")
 (depends-on "go-eldoc")
+
+(depends-on "flymake-python-pyflakes")

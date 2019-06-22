@@ -93,3 +93,8 @@
 (custom-set-variables '(ido-ignore-files (cons '"\\`\\." ido-ignore-files)))
 (define-key ido-file-dir-completion-map (kbd "SPC") 'ido-exit-minibuffer)
 
+;; abbrev
+(setq abbrev-file-name "~/.abbrev_defs")
+(define-key esc-map  " " 'expand-abbrev) ;; M-SPC
+(quietly-read-abbrev-file)
+(setq save-abbrevs 'silently)
