@@ -51,6 +51,7 @@
 (depends-on "ruby-mode")
 (depends-on "sass-mode")
 (depends-on "slim-mode")
+(depends-on "terraform-mode")
 (depends-on "yaml-mode")
 
 (depends-on "rubocop")

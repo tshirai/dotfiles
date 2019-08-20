@@ -1,4 +1,4 @@
-PATH=$PATH:~/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=~/local/bin:~/bin:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # set PROMPT, RPROMPT
 autoload -U colors
@@ -94,8 +94,10 @@ setopt share_history # share command history data
 
 # completion
 fpath=(~/.zsh/functions/Completion ${fpath})
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
+
+autoload -U +X bashcompinit && bashcompinit
+[[ -f ~/local/lib/azure-cli/az.completion ]] && source ~/local/lib/azure-cli/az.completion
 
 autoload zed
 

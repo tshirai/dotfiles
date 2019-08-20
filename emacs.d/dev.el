@@ -338,3 +338,7 @@
            (setq indent-tabs-mode nil)
            (setq c-basic-offset 2)
            (setq tab-width 2)))
+
+;; terraform
+(add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
+

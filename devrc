@@ -75,6 +75,9 @@ if [ -d ~/.goenv ]; then
   export GOROOT=`go env GOROOT`
 fi
 
+# rust
+PATH=~/.cargo/bin:$PATH
+
 # last
 export PATH
 
