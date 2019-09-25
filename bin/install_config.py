@@ -126,6 +126,7 @@ def main():
         sh("cp dotfiles/ssh/config .ssh/")
         sh("cp dotfiles/ssh/authorized_keys .ssh/")
         sh("chmod 600 .ssh/config .ssh/authorized_keys")
+        sh("cp dotfiles/gitconfig .gitconfig")
         # ln("%s/dotfiles/subversion/config" % HOME, ".subversion/config")
     else:
         ws("only update related files.")
@@ -134,7 +135,6 @@ def main():
     sh("chmod +x %s/dotfiles/bin/*" % HOME)
 
     ln("%s/dotfiles/.gitignore" % HOME, ".gitignore")
-    ln("%s/dotfiles/gitconfig" % HOME, ".gitconfig")
     ln("%s/dotfiles/gemrc" % HOME, ".gemrc")
     ln("%s/dotfiles/screenrc" % HOME, ".screenrc")
     ln("%s/dotfiles/tmux.conf" % HOME, ".tmux.conf")
