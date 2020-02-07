@@ -109,8 +109,9 @@
 (setq auto-mode-alist
       (cons (cons "\\.py$" 'python-mode) auto-mode-alist))
 
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (setq flymake-python-pyflakes-executable "~/.pyenv/shims/flake8")
+(setq flycheck-flake8rc ".flake8")
+
 
 ;;ruby
 (autoload 'ruby-mode "ruby-mode"
@@ -125,13 +126,17 @@
 (setq ruby-insert-encoding-magic-comment nil)
 
 ;; inf-ruby
-(autoload 'run-ruby "inf-ruby"
-  "Run an inferior Ruby process")
-(autoload 'inf-ruby-keys "inf-ruby"
-  "Set local key defs for inf-ruby in ruby-mode")
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (inf-ruby-keys)))
+(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+(add-hook 'compilation-filter-hook 'inf-ruby-auto-enter)
+
+;; older?
+; (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
+; (autoload 'inf-ruby-keys "inf-ruby"
+;   "Set local key defs for inf-ruby in ruby-mode")
+; (add-hook 'ruby-mode-hook
+;          '(lambda ()
+;             (inf-ruby-keys)))
 
 ;; flycheck + rubocop
 (add-hook 'ruby-mode-hook

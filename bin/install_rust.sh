@@ -7,4 +7,4 @@ fi
 
 export PATH=~/.cargo/bin:$PATH
 
-cargo install ripgrep bat exa
+cargo install ripgrep bat exa fd-find
