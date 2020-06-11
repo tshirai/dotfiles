@@ -1,5 +1,4 @@
 #! /usr/bin/env python
-#encoding=utf8
 
 import sys, os, os.path
 
@@ -8,40 +7,40 @@ USER = os.environ["USER"]
 DEFAULT_PATH = os.environ["PATH"]
 
 def ws(message):
-    sys.stdout.write("%s\n" % message)
+    sys.stdout.write(f"{message}\n")
 
 def es(message):
-    sys.stderr.write("! %s\n" % message)
+    sys.stderr.write(f"! {message}\n")
 
 def cd(path):
     if not os.path.exists(path):
-        es("%s is not exists." % path)
+        es(f"{path} is not exists.")
         sys.exit(-1)
 
     if not os.path.isdir(path):
-        es("%s is not directory." % path)
+        es(f"{path} is not directory.")
         sys.exit(-1)
 
     os.chdir(path)
-    ws("cd %s" % path)
+    ws(f"cd {path}")
 
 def sh(command, validation = True):
     ws(command)
-    ret = os.system("%s" % command)
+    ret = os.system(command)
     if ret != 0 and validation:
-        es("%s returns %d" % (command, ret))
+        es(f"{command} returns {ret}")
         # sys.exit(-1)
 
 def mksshdir():
-    if not os.path.exists("%s/.ssh" % HOME):
+    if not os.path.exists(f"{HOME}/.ssh"):
         sh("ssh localhost hostname", False)
 
 def mkdir(path):
-    ws("mkdir %s" % path)
+    ws(f"mkdir {path}")
     try:
         os.makedirs(path)
     except OSError:
-        ws("-- %s exists" % path)
+        ws(f"-- {path} exists")
 
 
 def ln(src, dest = ""):
@@ -49,26 +48,25 @@ def ln(src, dest = ""):
         dest = os.path.basename(src)
     if os.path.exists(dest):
         if not os.path.islink(dest):
-            es("%s already exists and is a real file" % dest)
+            es(f"{dest} already exists and is a real file")
             # sys.exit(-1)
         else:
-            sh("rm %s" % dest)
-    sh("ln -s %s %s" %(src, dest))
+            sh(f"rm {dest}")
+    sh(f"ln -s {src} {dest}")
 
 def write_f(path, content):
-    ws("write to %s" % path)
+    ws(f"write to {path}")
     try:
-        f = file(path, "w")
-        f.write(content)
-        f.close()
-    except IOError, (errno, strerror):
-        es("I/O error(%s): %s" % (errno, strerror))
+        with open(path, "w") as f:
+            f.write(content)
+    except IOError as e:
+        es("I/O error")
+        print(e)
         sys.exit(-1)
-        
+
 
 def bash_profile():
-    content = \
-"""
+    content = """
 export DOTFILES=$HOME/dotfiles
 if [ -f $DOTFILES/bash_profile ]; then
   source $DOTFILES/bash_profile
@@ -78,38 +76,35 @@ if [ -f $DOTFILES/bash_profile ]; then
     return content
 
 def bashrc():
-    content = \
-"""
-# export PATH=%s
+    content = f"""
+# export PATH={DEFAULT_PATH}
 
 export DOTFILES=$HOME/dotfiles
 if [ -f $DOTFILES/bashrc ]; then
 \tsource $DOTFILES/bashrc
 fi
 
-""" %(DEFAULT_PATH)
+    """
     return content
 
 def zshrc():
-    content = \
-"""
+    content = f"""
 export LANG=ja_JP.UTF-8
-# export PATH=%s
+# export PATH={DEFAULT_PATH}
 export DOTFILES=$HOME/dotfiles
-if [ -f ${DOTFILES}/zshrc ]
+if [ -f $DOTFILES/zshrc ]
 then
-    source ${DOTFILES}/zshrc
+    source $DOTFILES/zshrc
 fi
 export PATH
 
 # scpのリモートファイルを補完しない。パスワード聞かれるので。
 zstyle ':completion:*:complete:scp:*:files' command command -
-""" %(DEFAULT_PATH)
+"""
     return content
 
 def dot_emacs():
-    content = \
-"""
+    content = f"""
 (load "~/dotfiles/emacs.d/init.el")
 """
     return content
