@@ -1,0 +1,14 @@
+#! /usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'webrick'
+port = ARGV[0] || 8080
+WEBrick::HTTPServer.new(
+  DocumentRoot: './',
+  Port: port,
+  MimeTypes:
+    {
+      'adoc' => 'text/asciidoc',
+      'md' => 'text/markdown',
+    },
+).start

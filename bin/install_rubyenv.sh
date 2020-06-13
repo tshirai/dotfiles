@@ -1,7 +1,12 @@
 #! /bin/bash
 
 
-sudo yum install -y git gcc gcc-c++ openssl-devel readline-devel
+if [ -f /etc/redhat-release ]; then
+    sudo yum install -y git gcc gcc-c++ openssl-devel readline-devel
+elif [ -f /etc/debian_version ]; then
+    # after install_python.py
+    sudo apt install -y autoconf bison libyaml-dev
+fi
 
 if [ ! -f ~/.rbenv ]; then
     git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
