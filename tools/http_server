@@ -3,12 +3,16 @@
 
 require 'webrick'
 port = ARGV[0] || 8080
+mime_types = if File.exist?('/etc/mime.types')
+               WEBrick::HTTPUtils.load_mime_types('/etc/mime.types')
+             else
+               {}
+             end
 WEBrick::HTTPServer.new(
   DocumentRoot: './',
   Port: port,
   MimeTypes:
-    {
-      'adoc' => 'text/asciidoc',
-      'md' => 'text/markdown',
-    },
+    mime_types.merge({
+                       'adoc' => 'text/asciidoc',
+                     }),
 ).start
