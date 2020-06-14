@@ -20,6 +20,14 @@ alias top="top -d 1"
 
 alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
 
+#############################
+# tmux
+alias tmuxe="tmux new -A -s editor"
+# Resize window
+alias tmuxea="tmux attach -d -t editor"
+
+alias tmuxc="tmux new -A -s command"
+alias tmuxca="tmux attach -d -t command"
 
 ###########################
 # color
