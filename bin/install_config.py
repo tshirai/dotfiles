@@ -1,16 +1,21 @@
 #! /usr/bin/env python
 
-import sys, os, os.path
+import sys
+import os
+import os.path
 
 HOME = os.environ["HOME"]
 USER = os.environ["USER"]
 DEFAULT_PATH = os.environ["PATH"]
 
+
 def ws(message):
     sys.stdout.write(f"{message}\n")
 
+
 def es(message):
     sys.stderr.write(f"! {message}\n")
+
 
 def cd(path):
     if not os.path.exists(path):
@@ -24,16 +29,19 @@ def cd(path):
     os.chdir(path)
     ws(f"cd {path}")
 
-def sh(command, validation = True):
+
+def sh(command, validation=True):
     ws(command)
     ret = os.system(command)
     if ret != 0 and validation:
         es(f"{command} returns {ret}")
         # sys.exit(-1)
 
+
 def mksshdir():
     if not os.path.exists(f"{HOME}/.ssh"):
         sh("ssh localhost hostname", False)
+
 
 def mkdir(path):
     ws(f"mkdir {path}")
@@ -53,6 +61,7 @@ def ln(src, dest = ""):
         else:
             sh(f"rm {dest}")
     sh(f"ln -s {src} {dest}")
+
 
 def write_f(path, content):
     ws(f"write to {path}")
@@ -75,6 +84,7 @@ if [ -f $DOTFILES/bash_profile ]; then
 """
     return content
 
+
 def bashrc():
     content = f"""
 # export PATH={DEFAULT_PATH}
@@ -86,6 +96,7 @@ fi
 
     """
     return content
+
 
 def zshrc():
     content = f"""
@@ -103,11 +114,13 @@ zstyle ':completion:*:complete:scp:*:files' command command -
 """
     return content
 
+
 def dot_emacs():
-    content = f"""
+    content = """
 (load "~/dotfiles/emacs.d/init.el")
 """
     return content
+
 
 def main():
     cd(HOME)
@@ -145,6 +158,7 @@ def main():
     sh("touch ~/.abbrev_defs")
 
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
