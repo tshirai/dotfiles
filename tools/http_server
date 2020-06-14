@@ -12,7 +12,8 @@ WEBrick::HTTPServer.new(
   DocumentRoot: './',
   Port: port,
   MimeTypes:
-    mime_types.merge({
-                       'adoc' => 'text/asciidoc',
-                     }),
+    mime_types.merge(
+      'md' => 'text/markdown',
+      'adoc' => 'text/asciidoc',
+    ),
 ).start
