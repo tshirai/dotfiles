@@ -55,4 +55,4 @@
  )
 
 ;; iswitchb
-(load_file (substitute-in-file-name "~/dotfiles/emacs.d/iswitchb_conf.el"))
+; (load_file (substitute-in-file-name "~/dotfiles/emacs.d/iswitchb_conf.el"))
