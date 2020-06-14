@@ -144,7 +144,6 @@ def main():
 
     ln("%s/dotfiles/.gitignore" % HOME, ".gitignore")
     ln("%s/dotfiles/gemrc" % HOME, ".gemrc")
-    ln("%s/dotfiles/screenrc" % HOME, ".screenrc")
     ln("%s/dotfiles/tmux.conf" % HOME, ".tmux.conf")
     ln("%s/dotfiles/inputrc" % HOME, ".inputrc")
     ln("%s/dotfiles/emacs.d/Cask" % HOME, ".emacs.d/Cask")
