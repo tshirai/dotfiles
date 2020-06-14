@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'webrick'
-port = ARGV[0] || 8080
+port = (ARGV[0] || 8080).to_i
 mime_types = if File.exist?('/etc/mime.types')
                WEBrick::HTTPUtils.load_mime_types('/etc/mime.types')
              else
