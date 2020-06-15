@@ -29,6 +29,9 @@ alias tmuxea="tmux attach -d -t editor"
 alias tmuxc="tmux new -A -s command"
 alias tmuxca="tmux attach -d -t command"
 
+alias tmuxd="tmux new -A -s doc"
+alias tmuxda="tmux attach -d -t doc"
+
 ###########################
 # color
 
