@@ -6,8 +6,11 @@ port = (ARGV[0] || 8080).to_i
 WEBrick::HTTPServer.new(
   DocumentRoot: './',
   Port: port,
-  MimeTypes: {
-    'md' => 'text/markdown',
+  DirectoryIndex: %w[index.html],
+  MimeTypes: WEBrick::HTTPUtils::DefaultMimeTypes.merge(
+    # For DirectoryIndex
+    # '' => 'text/html',
     'adoc' => 'text/asciidoc',
-  },
+    'md' => 'text/markdown; charset=utf8',
+  ),
 ).start
