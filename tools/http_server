@@ -10,7 +10,7 @@ WEBrick::HTTPServer.new(
   MimeTypes: WEBrick::HTTPUtils::DefaultMimeTypes.merge(
     # For DirectoryIndex
     # '' => 'text/html',
-    'adoc' => 'text/asciidoc',
+    'adoc' => 'text/asciidoc; charset=utf8',
     'md' => 'text/markdown; charset=utf8',
   ),
 ).start
