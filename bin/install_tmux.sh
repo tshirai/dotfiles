@@ -4,6 +4,8 @@ set -ex
 
 if [ -f /etc/redhat-release ]; then
     sudo yum install libevent libevent-devel -y
+elif [ -f /etc/debian_version ]; then
+    sudo apt install libevent-dev libncurses5-dev -y
 fi
 
 cd ~/local/src
