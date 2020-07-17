@@ -43,6 +43,11 @@ if [ -d ~/.cask ]; then
   PATH=~/.cask/bin:$PATH
 fi
 
+# tmux
+if [ -d ~/local/tmux ]; then
+  PATH=~/local/tmux/bin:$PATH
+fi
+
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 alias be="bundle exec"
