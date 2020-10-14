@@ -2,9 +2,10 @@
 # frozen_string_literal: true
 
 require 'webrick'
-port = (ARGV[0] || 8080).to_i
+dir = ARGV[0] || './'
+port = (ARGV[1] || 8080).to_i
 WEBrick::HTTPServer.new(
-  DocumentRoot: './',
+  DocumentRoot: dir,
   Port: port,
   DirectoryIndex: %w[index.html],
   MimeTypes: WEBrick::HTTPUtils::DefaultMimeTypes.merge(
@@ -12,5 +13,6 @@ WEBrick::HTTPServer.new(
     # '' => 'text/html',
     'adoc' => 'text/asciidoc; charset=utf8',
     'md' => 'text/markdown; charset=utf8',
+    'pu' => 'text/plantuml; charset=utf8',
   ),
 ).start

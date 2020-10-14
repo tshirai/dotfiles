@@ -25,12 +25,18 @@ alias ltime='/usr/bin/time --format="\n----\nr %e/u %U/s %S sec"'
 alias tmuxe="tmux new -A -s editor"
 # Resize window
 alias tmuxea="tmux attach -d -t editor"
+alias tme="tmux attach -d -t editor"
 
 alias tmuxc="tmux new -A -s command"
 alias tmuxca="tmux attach -d -t command"
+alias tmc="tmux attach -d -t command"
 
 alias tmuxd="tmux new -A -s doc"
 alias tmuxda="tmux attach -d -t doc"
+alias tmd="tmux attach -d -t doc"
+
+alias tmux1="tmux new -A -s other1"
+alias tmux1a="tmux attach -d -t other1"
 
 ###########################
 # color
