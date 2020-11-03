@@ -127,6 +127,12 @@ setopt RC_EXPAND_PARAM
 ## disable mail checking
 #MAILCHECK=0
 
+# ssh agent
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval "$(ssh-agent -s)"
+    ssh-add -k ~/.ssh/id_rsa
+fi
+
 
 [[ -f ${DOTFILES}/alias ]] && source ${DOTFILES}/alias
 [[ -f ${DOTFILES}/devrc ]] && source ${DOTFILES}/devrc
