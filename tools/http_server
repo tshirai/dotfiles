@@ -2,8 +2,12 @@
 # frozen_string_literal: true
 
 require 'webrick'
+require 'webrick/https'
+
 dir = ARGV[0] || './'
 port = (ARGV[1] || 8080).to_i
+enable_ssl = (port == 8443)
+
 WEBrick::HTTPServer.new(
   DocumentRoot: dir,
   Port: port,
@@ -15,4 +19,6 @@ WEBrick::HTTPServer.new(
     'md' => 'text/markdown; charset=utf8',
     'pu' => 'text/plantuml; charset=utf8',
   ),
+  SSLEnable: enable_ssl,
+  SSLCertName: [%w[CN localhost]],
 ).start
