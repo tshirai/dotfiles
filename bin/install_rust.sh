@@ -7,4 +7,8 @@ fi
 
 export PATH=~/.cargo/bin:$PATH
 
-cargo install ripgrep bat exa fd-find
+# To update, cargo install-update --all
+cargo install cargo-update
+cargo install ripgrep bat exa fd-find lsd git-delta
+cargo install ht pastel gitui onefetch du-dust bottom mcfly
+cargo install grex

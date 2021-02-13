@@ -139,3 +139,5 @@ fi
 [[ -f /etc/proxyrc ]] && source /etc/proxyrc
 [[ -f ~/.proxyrc ]] && source ~/.proxyrc
 
+mcfly_sh_path=$(find ~/.cargo -name mcfly.zsh)
+[[ ! -z "${mcfly_sh_path}" ]] && source "${mcfly_sh_path}"
