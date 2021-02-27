@@ -4,16 +4,19 @@ if [ ! -d ~/.goenv ]; then
   git clone https://github.com/syndbg/goenv.git ~/.goenv
 fi
 
-# goenv install -l
-# goenv install <version>
-# goenv global <version>
+echo """
+Install:
+  goenv install -l
+  goenv install <version>
+  goenv global <version>
+"""
 # go get github.com/nsf/gocode
 # go get github.com/rogpeppe/godef
 # go get github.com/golang/lint/golint
 # go get github.com/kisielk/errcheck
 
 # install peco
-if [ -x "$GOPATH" ]; then
+if [ ! -z "$GOPATH" ]; then
     dir=~/go/src/github.com/peco/peco
     if [ ! -d ${dir} ]; then
        git clone https://github.com/peco/peco  ${dir}
