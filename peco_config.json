@@ -1,0 +1,17 @@
+{
+  "Keymap": {
+    "C-g": "peco.Cancel",
+    "M-f": "peco.ForwardWord",
+    "M-b": "peco.BackwardWord",
+    "M-d": "peco.DeleteForwardWord",
+    "M-h": "peco.DeleteBackwardWord",
+    "C-k": "peco.KillEndOfLine",
+    "C-v": "peco.ScrollPageDown",
+    "M-v": "peco.ScrollPageUp",
+    "Tab": "peco.Finish"
+  },
+  "Style": {
+    "Matched": ["blue", "on_black"],
+    "Selected": ["red", "on_black"]
+  }
+}

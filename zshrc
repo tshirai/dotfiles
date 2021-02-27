@@ -139,5 +139,59 @@ fi
 [[ -f /etc/proxyrc ]] && source /etc/proxyrc
 [[ -f ~/.proxyrc ]] && source ~/.proxyrc
 
-mcfly_sh_path=$(find ~/.cargo -name mcfly.zsh)
-[[ ! -z "${mcfly_sh_path}" ]] && source "${mcfly_sh_path}"
+## mkfly is not for me.
+# mcfly_sh_path=$(find ~/.cargo -name mcfly.zsh)
+# [[ ! -z "${mcfly_sh_path}" ]] && source "${mcfly_sh_path}"
+
+if which peco 1> /dev/null 2> /dev/null ; then
+    alias peco="peco --layout=bottom-up"
+    #############################
+    # ctrl-r command history.
+    function peco-history-selection() {
+        BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+        CURSOR=$#BUFFER
+        zle reset-prompt
+    }
+
+    zle -N peco-history-selection
+    bindkey '^R' peco-history-selection
+
+    #############################
+    # ctrl-u cdr with peco
+
+    # cdr
+    if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+        autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+        add-zsh-hook chpwd chpwd_recent_dirs
+        zstyle ':completion:*' recent-dirs-insert both
+        zstyle ':chpwd:*' recent-dirs-default true
+        zstyle ':chpwd:*' recent-dirs-max 1000
+        zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+    fi
+
+    # search a destination from cdr list
+    function peco-get-destination-from-cdr() {
+        # cdr -l | sort -r | \
+        cdr -l | \
+            sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
+            peco --layout=bottom-up --query "$LBUFFER"
+    }
+
+    function peco-cdr () {
+        local destination="$(peco-get-destination-from-cdr)"
+        if [ -n "$destination" ]; then
+            BUFFER="cd $destination"
+            zle accept-line
+        else
+            zle reset-prompt
+        fi
+    }
+    zle -N peco-cdr
+    bindkey '^u' peco-cdr
+
+    #############################
+    # others
+
+    # docker exec /bin/bash
+    alias de='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/bash'
+fi
