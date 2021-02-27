@@ -148,7 +148,7 @@ if which peco 1> /dev/null 2> /dev/null ; then
     #############################
     # ctrl-r command history.
     function peco-history-selection() {
-        BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+        BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
         CURSOR=$#BUFFER
         zle reset-prompt
     }
@@ -171,7 +171,6 @@ if which peco 1> /dev/null 2> /dev/null ; then
 
     # search a destination from cdr list
     function peco-get-destination-from-cdr() {
-        # cdr -l | sort -r | \
         cdr -l | \
             sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
             peco --layout=bottom-up --query "$LBUFFER"

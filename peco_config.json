@@ -1,6 +1,5 @@
 {
   "Keymap": {
-    "C-g": "peco.Cancel",
     "M-f": "peco.ForwardWord",
     "M-b": "peco.BackwardWord",
     "M-d": "peco.DeleteForwardWord",
@@ -8,6 +7,7 @@
     "C-k": "peco.KillEndOfLine",
     "C-v": "peco.ScrollPageDown",
     "M-v": "peco.ScrollPageUp",
+    "C-g": "peco.Cancel",
     "Tab": "peco.Finish"
   },
   "Style": {
