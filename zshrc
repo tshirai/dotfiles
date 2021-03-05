@@ -144,11 +144,11 @@ fi
 # [[ ! -z "${mcfly_sh_path}" ]] && source "${mcfly_sh_path}"
 
 if which peco 1> /dev/null 2> /dev/null ; then
-    alias peco="peco --layout=bottom-up"
+    # alias peco="peco --layout=bottom-up"
     #############################
     # ctrl-r command history.
     function peco-history-selection() {
-        BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
+        BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco --layout=bottom-up`
         CURSOR=$#BUFFER
         zle reset-prompt
     }
