@@ -23,8 +23,9 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script\-p)
 
-;;(display-time)
+;;bell
 (setq visible-bell nil)
+(setq ring-bell-function 'ignore)
 (line-number-mode t)
 
 ;;just in time
