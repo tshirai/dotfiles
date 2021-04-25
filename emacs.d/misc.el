@@ -24,7 +24,7 @@
           'executable-make-buffer-file-executable-if-script\-p)
 
 ;;bell
-(setq visible-bell nil)
+; (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
 (line-number-mode t)
 
