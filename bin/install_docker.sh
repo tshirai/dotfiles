@@ -1,9 +1,11 @@
 #! /bin/bash
 
 if [ -f /etc/redhat-release ]; then
-    sudo yum install -y docker
-    sudo systemctl start docker
-    sudo systemctl enable docker
+    # https://docs.docker.jp/engine/installation/linux/docker-ce/centos.html#docker-ce
+    echo "Not implemented. Use install_podman.sh. Or, see the above link."
+    # sudo yum install -y docker
+    # sudo systemctl start docker
+    # sudo systemctl enable docker
 elif [ -f /etc/debian_version ]; then
     # https://docs.docker.com/engine/install/ubuntu/#installation-methods
     sudo apt -y install apt-transport-https ca-certificates curl \

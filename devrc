@@ -26,7 +26,7 @@ fi
 # pyenv
 export PYENV_ROOT=~/.pyenv
 [[ -d ~/.pyenv ]] && PATH=~/.pyenv/bin:$PATH
-which pyenv > /dev/null 2> /dev/null && eval "$(pyenv init -)"
+which pyenv > /dev/null 2> /dev/null && eval "$(pyenv init --path)"
 if which pyenv > /dev/null 2> /dev/null; then
    pyenv which aws_zsh_completer.sh > /dev/null 2> /dev/null && source "$(pyenv which aws_zsh_completer.sh)"
 else

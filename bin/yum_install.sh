@@ -10,3 +10,4 @@ sudo yum install -y sysstat
 sudo yum install -y epel-release
 sudo yum install -y lv man tree
 sudo yum install -y tmux subversion
+sudo yum install -y bzip2 bzip2-libs bzip2-devel patch

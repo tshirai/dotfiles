@@ -1,7 +1,5 @@
-;; setup el-get
-;; first boot emacs => install el-get in ~/.emacs.d/el-get, then, misc.el will fail.
-;; second boot      => el-get-install defined in ~/dotfiles/emacs.d/el-get.el, the, misc.el will fail
-;; third boot       => will success.
+;; see https://github.com/cask/cask/issues/463
+(setq warning-suppress-log-types '((package reinitialization)))
 
 (defun push-path(x)
   (setq load-path (cons x load-path)))
