@@ -19,7 +19,7 @@ export PATH=~/.pyenv/bin:$PATH
 eval "$(pyenv init --path)"
 
 cd ~
-mkdir .pyenv/cache
+# mkdir .pyenv/cache
 pyenv install 3.8.11
 pyenv global 3.8.11
 
