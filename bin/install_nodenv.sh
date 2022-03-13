@@ -21,3 +21,6 @@ fi
 if [ ! -d "$(nodenv root)"/plugins/node-build ]; then
     git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
 fi
+if [ ! -d ]; then
+    git clone https://github.com/pine/nodenv-yarn-install.git "$(nodenv root)"/plugins/nodenv-yarn-install
+fi
