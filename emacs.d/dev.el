@@ -108,9 +108,9 @@
   "Major mode for editing Python programs" t)
 (setq auto-mode-alist
       (cons (cons "\\.py$" 'python-mode) auto-mode-alist))
-(setq flymake-python-pyflakes-executable "~/.pyenv/shims/flake8")
+(setq pipenv-with-flycheck nil)
+; (setq flymake-python-pyflakes-executable "~/.pyenv/shims/flake8")
 (setq flycheck-flake8rc ".flake8")
-
 
 ;;ruby
 (autoload 'ruby-mode "ruby-mode"

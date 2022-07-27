@@ -14,6 +14,12 @@ xz -df emacs-${ver}.tar.xz
 tar xf emacs-${ver}.tar
 
 cd emacs-${ver}/
-./configure --prefix=${HOME}/local/emacs --with-x-toolkit=no --with-xpm=ifavailable --with-jpeg=ifavailable --with-gif=ifavailable --with-tiff=ifavailable
+./configure \
+    --prefix=${HOME}/local/emacs \
+    --with-x-toolkit=no \
+    --with-xpm=ifavailable \
+    --with-jpeg=ifavailable \
+    --with-gif=ifavailable \
+    --with-tiff=ifavailable
 make
 make install
