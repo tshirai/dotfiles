@@ -88,7 +88,14 @@ if [ -d ~/.goenv ]; then
 fi
 
 # rust
-PATH=~/.cargo/bin:$PATH
+if [ -d ~/.cargo ]; then
+  PATH=~/.cargo/bin:$PATH
+fi
+
+# Claude Code
+if [ -d ~/.local ]; then
+  PATH=~/.local/bin:$PATH
+fi
 
 # last
 export PATH
