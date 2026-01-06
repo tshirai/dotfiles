@@ -44,6 +44,7 @@ if [ -d ~/local/emacs ]; then
 elif [ -d /usr/local/emacs ]; then
   PATH=/usr/local/emacs/bin:$PATH
 fi
+alias emacs="emacs -nw"
 
 # cask
 if [ -d ~/.cask ]; then
