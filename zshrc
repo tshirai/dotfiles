@@ -1,4 +1,4 @@
-PATH=~/local/bin:~/bin:~/dotfiles/tools:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=~/local/bin:~/.local/bin:~/bin:~/dotfiles/tools:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # set PROMPT, RPROMPT
 autoload -U colors

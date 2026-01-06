@@ -1,7 +1,7 @@
 #! /bin/bash
 set -ex
 
-sudo apt -y install apt-show-versions lv tree curl
+sudo apt -y install apt-show-versions lv tree curl zsh unzip
 sudo apt -y install language-pack-ja-base language-pack-ja ibus-mozc
 sudo apt -y install build-essential libbz2-dev libdb-dev
 sudo apt -y install libreadline-dev libffi-dev libgdbm-dev liblzma-dev
